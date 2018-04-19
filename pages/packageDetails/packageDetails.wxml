@@ -1,0 +1,7 @@
+<!--pages/packageDetails/packageDetails.wxml-->
+<view class="details">
+  <text>an image here....</text>
+  <text>descriptions...</text>
+  <text>id:{{id}}</text>
+  <text>descriptions2....</text>
+</view>

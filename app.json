@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/myPackage/myPackage",
+    "pages/packageDetails/packageDetails",
+    "pages/addPackage/addPackage"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

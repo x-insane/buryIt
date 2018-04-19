@@ -1,0 +1,74 @@
+/* pages/myPackage/myPackage.wxss */
+.swiper-tab{
+  width:100%;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-flow: row;
+}
+
+.swiper-tab-item{
+    width: 50%; 
+}
+
+.inactive{
+  border-bottom: 2rpx solid #ccc;
+}
+.active{
+    color:#00FF7F;
+    border-bottom: 4rpx solid #00FF7F;
+}
+
+swiper{
+  text-align: center;
+  height: 85vh;
+}
+
+.scrollView{
+  background-color: #F0F8FF;
+  height: 100%;
+  width: 100%;
+}
+
+.package-image{
+  width: 200rpx;
+  height: 200rpx;
+  margin-right: 130rpx;
+}
+
+.swiperItem{
+  display: flex;
+  flex-direction: column
+}
+
+.packageOverview{
+  display: flex;
+  height: 20vh;
+  border-bottom: 4rpx solid #ccc;
+}
+
+.packageDescription{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  width:100rpx;
+}
+
+.add{
+  position: fixed;
+  height: 55rpx;
+  width: 55rpx;
+  top:85vh;
+  left: 680rpx;
+}
+
+.star{
+  height: 100rpx;
+  width: 100rpx;
+  position: relative;
+  left: 200rpx;
+  top:70rpx
+}
+
+

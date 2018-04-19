@@ -1,0 +1,32 @@
+<!--pages/myPackage/myPackage.wxml-->
+<view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':'inactive'}}" data-current="0" bindtap="clickTab">已埋下</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':'inactive'}}" data-current="1" bindtap="clickTab">未埋下</view>
+    </view>
+
+<swiper current="{{currentTab}}" duration="300"  bindchange="swiperTab" >
+    <swiper-item class="swiperItem" wx:for="{{swiperItem}}" wx:key="{{index}}">
+      <scroll-view scroll-y class="scrollView" >
+
+        <view class="packageOverview" wx:for="{{packages}}" wx:key="{{index}}" 
+        wx:if="{{item.hasBuried==(currentTab==0?true:false)}}" catchtap='goToDetails' 
+        data-package-id="{{item.id}}">
+
+          <image class="package-image" 
+          src="{{item.hasBuried==true?'/icons/greyPackage.png':'/icons/greenPackage.png'}}"></image>
+
+          <view class="packageDescription">
+            <text>{{item.name}}</text>
+            <text>{{item.infor}}</text>
+          </view>
+
+          <image src="{{item.stared==true?'/icons/yellowStar.png':'/icons/greyStar.png'}}"
+          catchtap='starIt' class='star' data-has-stared="{{item.stared}}"
+          data-xu-hao="{{index}}"></image>
+
+        </view>
+      </scroll-view>
+    </swiper-item>
+</swiper>
+
+<image src='/icons/add.png' catchtap='add' class='add'></image>
