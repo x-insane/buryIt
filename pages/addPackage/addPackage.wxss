@@ -1,1 +1,28 @@
 /* pages/addPackage/addPackage.wxss */
+.radio{
+  color: "#7FFFAA";
+  width:33vh;
+}
+
+.radios{
+  display: flex;
+  width:750rpx;
+}
+
+.radio-group{
+  height:7vh;
+  width:750rpx;
+}
+
+.button-hover{
+  background-color: greenyellow;
+}
+
+.other-button-hover{
+  background-color: blue;
+}
+
+.ok{
+    position: relative;
+    left:85vh;
+}

@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/myPackage/myPackage",
-    "pages/packageDetails/packageDetails",
-    "pages/addPackage/addPackage"
+    "pages/addPackage/addPackage",
+    "pages/packageDetails/packageDetails"
   ],
   "window": {
     "backgroundTextStyle": "light",

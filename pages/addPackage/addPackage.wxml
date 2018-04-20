@@ -1,2 +1,11 @@
 <!--pages/addPackage/addPackage.wxml-->
 <text>add a package in this page...</text>
+<radio-group class="radio-group" bindchange="choiceChanged">
+<view class="radios">
+    <radio wx:for="{{packageTypes}}" class="radio" value="{{item.name}}" 
+    checked="{{item.checked}}" wx:key="{{index}}">
+    <text>{{item.value}}</text>
+    </radio>
+    </view>
+</radio-group>
+<button class="ok" size="mini" type="primary">确定</button>
