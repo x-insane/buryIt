@@ -8,58 +8,101 @@ Page({
       name:"xixi",
       hasBuried:false,
       infor:"hello world",
-      stared:false
+      stared:false,
+      modifiedInfor:"",
     },
     {
       id: 2,
       name: "xixi",
       hasBuried:true,
       infor:"hihihi",
-      stared: true
+      stared: true,
+      modifiedInfor:"",
     },
     {
       id: 3,
       name: "xixi",
       hasBuried: true,
       infor: "hihihi",
-      stared: false
+      stared: false,
+      modifiedInfor:"",
     },
     {
       id: 4,
       name: "dsadasda",
       hasBuried: false,
       infor: "eqwecxzcxi",
-      stared: false
+      stared: false,
+      modifiedInfor:"",
     },
     {
       id: 5,
       name: "xixi",
       hasBuried: true,
       infor: "hihihi",
-      stared: true
+      stared: true,
+      modifiedInfor: "",
     },
     {
       id: 6,
       name: "xixi",
       hasBuried: true,
       infor: "hihihi",
-      stared: true
+      stared: true,
+      modifiedInfor: "",
     },
     {
       id: 7,
       name: "dsadasd",
       hasBuried: false,
       infor: "vxcvfdadsa",
-      stared: true
+      stared: true,
+      modifiedInfor: "",
     },
     {
       id: 8,
+      name: "PPP",
+      hasBuried: true,
+      infor: "dsadsadsadasdasdasdasdasdsadsadasdaas",
+      stared: false,
+      modifiedInfor: "",
+    },
+    {
+      id: 9,
       name: "xixi",
       hasBuried: true,
       infor: "hihihi",
-      stared: false
-    }
+      stared: false,
+      modifiedInfor: "",
+    },
+    {
+      id: 10,
+      name: "xixi",
+      hasBuried: true,
+      infor: "hihihi",
+      stared: false,
+      modifiedInfor: "",
+    },
+    {
+      id: 11,
+      name: "xixi",
+      hasBuried: true,
+      infor: "hihihi",
+      stared: false,
+      modifiedInfor: "",
+    },
     ]
+  },
+  //设置modifiedInfor
+  onLoad:function(options){
+    for (var i = 0; i < this.data.packages.length;i++){
+      if(this.data.packages[i].infor.length>26){
+        this.data.packages[i].modifiedInfor = this.data.packages[i].infor.substring(0,25)+"...";
+      }
+      this.setData({
+        packages:this.data.packages
+      })
+    }
   },
   //滑动换页
   swiperTab: function (e) {

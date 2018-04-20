@@ -16,8 +16,8 @@
           src="{{item.hasBuried==true?'/icons/greyPackage.png':'/icons/greenPackage.png'}}"></image>
 
           <view class="packageDescription">
-            <text>{{item.name}}</text>
-            <text>{{item.infor}}</text>
+            <text>name:{{item.name}}</text>
+            <text>description:{{item.modifiedInfor==""?item.infor:item.modifiedInfor}}</text>
           </view>
 
           <image src="{{item.stared==true?'/icons/yellowStar.png':'/icons/greyStar.png'}}"
