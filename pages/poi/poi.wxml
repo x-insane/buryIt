@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class="header">
+      <view class="add">
+        <text>+</text>
+      </view>
+      <view class="section">
+      <input class="choose-position" value="{{pos}}" data-city="{{city}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}" placeholder='搜索' bindtouchstart='bindInputStart' bindinput='bindInput' focus='true'  />
+      </view>
+    </view>
+
+    <view bindtouchstart="bindSearch" data-keywords='{{i.name}}' class='text_box' wx:for="{{tips}}" wx:for-item="i">
+      {{i.name}}
+      </view>
+
+<view class="map_container">
+<map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" controls='{{controls}}' bindcontroltap='controltap' markers="{{markers}}" circles='{{circles}}' bindmarkertap="markertap" polyline='{{polyline}}' bindregionchange='regionchange' show-location="true" style="width:100%; height:{{view.Height}}px;" ></map>
+</view>
+
+<view class="map_text">
+  <text class="h1">{{textData.name}}</text>
+  <text>{{textData.desc}}</text>
+</view>
+
+  </view> 

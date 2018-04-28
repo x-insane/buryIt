@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class="header">
+      <view class="add">
+        <text>+</text>
+      </view>
+      <view class="section">
+      <input class="choose-position" value="{{pos}}" data-city="{{city}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}" placeholder='搜索' bindtouchstart='bindInputStart' bindinput='bindInput' focus='true'  />
+      </view>
+    </view>
+
+    <view bindtouchstart="bindSearch" data-keywords='{{i.name}}' class='text_box' wx:for="{{tips}}" wx:for-item="i">
+      {{i.name}}
+      </view>
+
+  </view> 
