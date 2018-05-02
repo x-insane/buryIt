@@ -1,0 +1,196 @@
+/* pages/edit/edit.wxss */
+
+page {
+  height: 100%;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  font: normal 30rpx/1.68 -apple-system-font,
+          'Helvetica Neue',
+          Helvetica,
+          'Microsoft YaHei',
+          sans-serif;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.container-gray {
+  background: #f9f9f9;
+}
+
+input {
+  height: 60rpx;
+  line-height: 60rpx;
+  font-family: inherit;
+}
+
+.input-list {
+  padding: 0 20rpx;
+  margin: 20rpx 0;
+  background: #fff;
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.input-list .input-item {
+  padding: 20rpx;
+  line-height: 2;
+  display: flex;
+  font-size: 30rpx;
+  border-top: 1rpx solid #e8e8e8;
+}
+
+.input-list .input-item:first-child {
+  border-top: 0;
+}
+
+.input-item-label {
+  display: block;
+  width: 5em;
+  color: #666;
+}
+
+.input-item-content {
+  color: #333;
+  flex: 1;
+}
+
+.input-item.input-item-full {
+  display: block;
+}
+
+.input-item.input-item-full .input-item-label {
+  width: 100%;
+}
+
+.input-item.input-item-full .input-item-content {
+  width: 100%;
+}
+
+.img-upload {
+  padding: 0;
+}
+
+textarea {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.group {
+  display: block;
+  width: 100%;
+}
+
+.group-header {
+  line-height: 70rpx;
+  display: flex;
+  padding: 0 20rpx;
+  background: #f9f9f9;
+}
+
+.group-body {
+  background: #fff;
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.group-body .input-list {
+  margin: 0;
+  border: none;
+}
+
+.img-upload {
+  padding: 20rpx;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.img-upload .img-item, .img-upload .img-add {
+  width: 100rpx;
+  height: 100rpx;
+  float: left;
+  margin: 10rpx;
+  border: 1rpx solid transparent;
+}
+
+.img-upload .img-add {
+  border: 1rpx dashed #ddd;
+  background-image: url('../../assets/add.png');
+  background: no-repeat 50% 50% / 70% auto;
+}
+
+.img-upload .img-item image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.img-upload .img-item {
+  position: relative;
+}
+
+.img-upload .img-item icon {
+  position: absolute;
+  right: -12rpx;
+  top: -12rpx;
+}
+
+.record-style {
+  bottom: 0;
+  left: 0;
+  height: 120rpx;
+  width: 100%;
+}
+
+.btn-style {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.speak-style {
+  position: relative;
+  height: 240rpx;
+  width: 240rpx;
+  border-radius: 20rpx;
+  margin: 50% auto;
+  background: #26a5ff;
+}
+
+.sound-style {
+  position: absolute;
+  width: 74rpx;
+  height: 150rpx;
+  margin-top: 45rpx;
+  margin-left: 83rpx;
+}
+
+.board {
+  overflow: hidden;
+  border-bottom: 2rpx solid #26A5FF;  
+}
+
+/*列布局*/
+
+.cell {
+  display: flex;
+  margin: 20rpx;
+}
+
+.cell .cell-bd {
+  flex: 1;
+  position: relative;
+}
+
+/**只显示一行*/
+
+.date {
+  font-size: 30rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
