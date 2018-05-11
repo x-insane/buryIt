@@ -16,8 +16,8 @@
   border-bottom: 2rpx solid #ccc;
 }
 .active{
-    color:#00FF7F;
-    border-bottom: 4rpx solid #00FF7F;
+    color:#09bb07;
+    border-bottom: 4rpx solid #09bb07;
 }
 
 swiper{

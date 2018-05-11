@@ -1,66 +1,72 @@
 <!--pages/edit/edit.wxml-->
-<view class="container container-gray">
-  <view class="group">
+<view class="container">
+    <view class="group">
 
-    <view class="group-header">基本信息</view>
-
-    <view class="group-body">
-      <view class="input-list">
-
-        <view class="input-item">
-          <text class="input-item-label">包裹名称</text>
-          <view class="input-item-content">
-            <input type="text" placeholder="请输入包裹名称"></input>
+      <view class="group-header">基本信息</view>
+      <view class="group-body">
+        <view class="input-list">
+          <view class="input-item">
+            <text class="input-item-label">包裹名称</text>
+            <view class="input-item-content">
+              <input type="text" placeholder="请输入包裹名称" value="{{title}}"></input>
+            </view>
+          </view>
+          <view class="input-item input-item-full">
+            <text class="input-item-label">内容</text>
+            <textarea class="input-item-textarea" value="{{text}}"></textarea>
           </view>
         </view>
-
-        <view class="input-item input-item-full">
-          <text class="input-item-label">内容</text>
-          <textarea class="input-item-textarea"></textarea>
-        </view>
-
       </view>
-    </view>
 
-    <view class="group-header">上传照片</view>
-    <view class="group-body">
-      <view class="img-upload">
-        <view class="img-add" bindtap='chooseImage'></view>
-        <view class="img-item" bindtap='editImage' wx:for="{{uploadimgs}}" wx:key="{{index}}">
-          <icon type='clear' size="20" color='red' style="display:{{ editable ? 'block' : 'none' }}" bindtap='deleteImg' data-index="{{index}}" />
-          <image src='{{item}}' mode="aspectFill"></image>
+      <view class="group-header">模式选择</view>
+      <view class="group-body">
+      <view class="mode-choose">
+      <radio-group class="mode" name='mode'>
+      <label><radio value='true'>真实模式</radio></label>
+      <label><radio value='false'>普通模式</radio></label>
+      </radio-group>
+      </view>
+      </view>
+
+      <view class="group-header">上传照片</view>
+      <view class="group-body">
+        <view class="img-upload">
+          <view class="img-add" bindtap='chooseImage'></view>
+          <view class="img-item" bindtap='editImage' wx:for="{{uploadimgs}}" wx:key="{{index}}">
+            <icon type='clear' size="20" color='red' style="display:{{ editableImg ? 'block' : 'none' }}" bindtap='deleteImg' data-index="{{index}}" />
+            <image src='{{item}}' mode="aspectFill"></image>
+          </view>
         </view>
       </view>
-    </view>
 
-    <view class="group-header">录音</view>
-    <view class="group-body">
-      <scroll-view>
-        <view wx:if="{{voices}}" class="common-list" style='margin-bottom:120rpx;'>
-          <block wx:for="{{voices}}">
-            <view class="board">
-              <view class="cell">
-                <view class="cell-bd" data-key="{{item.filePath}}" bindtap='gotoPlay'>
-                  <view class='date'>存储路径：{{item.filePath}}</view>
-                  <view class='date'>存储时间：{{item.createTime}}</view>
-                  <view class='date'>音频大小：{{item.size}}KB</view>
+      <view class="group-header">录音</view>
+      <view class="group-body">
+        <scroll-view>
+          <view wx:if="{{voices}}" class="common-list" style='margin-top:40rpx; margin-bottom:120rpx;'>
+            <block wx:for="{{voices}}">
+              <view class="board">
+                <view class="cell">
+                  <view class="cell-bd" data-key="{{item.filePath}}" bindtap='gotoPlay'>
+                    <view class='date'>存储路径：{{item.filePath}}</view>
+                    <view class='date'>存储时间：{{item.createTime}}</view>
+                    <view class='date'>音频大小：{{item.size}}KB</view>
+                  </view>
                 </view>
               </view>
-            </view>
-          </block>
+              <icon type='clear' size="20" color='red' class='deleteVoice-icon' style="display:{{ editableVoice ? 'block' : 'none' }}" bindtap='deleteVoice' data-index="{{index}}" />
+            </block>
+          </view>
+        </scroll-view>
+        <view class="record-area">
+          <button wx:if="{{!isRecording}}" class="button record-button" hover-class='record-button-hover' bindtap="startRecord">点击录音</button>
+          <button wx:if="{{isRecording}}" class="button recording-button" hover-class='recording-button-hover' bindtap="stopRecord">{{60 - recordTime + 's'}}</button>
         </view>
-      </scroll-view>
-      <view wx:if="{{isSpeaking}}" class="speak-style">
-        <image class="sound-style" src="/images/voice_icon_speech_sound_1.png"></image>
-        <image wx:if="{{j==2}}" class="sound-style" src="/images/voice_icon_speech_sound_2.png"></image>
-        <image wx:if="{{j==3}}" class="sound-style" src="/images/voice_icon_speech_sound_3.png"></image>
-        <image wx:if="{{j==4}}" class="sound-style" src="/images/voice_icon_speech_sound_4.png"></image>
-        <image wx:if="{{j==5}}" class="sound-style" src="/images/voice_icon_speech_sound_5.png"></image>
-      </view>
-      <view class="record-style">
-        <button class="btn-style" bindtouchstart='touchdown' bindtouchend='touchup'>按住 录音</button>
-      </view>
-    </view>
 
-  </view>
+      </view>
+
+      <view class='btn-submit'>
+        <button class='btn-block btn-green' bindtap='submit' >提交</button>
+      </view>
+
+    </view>
 </view>

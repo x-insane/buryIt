@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/edit/edit",
     "pages/index/index",
     "pages/logs/logs",
     "pages/message/message",
@@ -9,13 +8,14 @@
     "pages/inputtips/input",
     "pages/myPackage/myPackage",
     "pages/addPackage/addPackage",
-    "pages/packageDetails/packageDetails"
+    "pages/packageDetails/packageDetails",
+    "pages/edit/edit"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#7FFFAA",
+    "navigationBarBackgroundColor": "#09bb07",
     "navigationBarTitleText": "buryIt",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "light"
   },
   "tabBar": {
     "color": "#9B9B9B",

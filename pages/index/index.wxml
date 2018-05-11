@@ -15,7 +15,7 @@
       </view> -->
 
 <view class="map_container">
-<map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" controls='{{controls}}' bindcontroltap='controltap' markers="{{markers}}" circles='{{circles}}' bindmarkertap="markertap" polyline='{{polyline}}' bindregionchange='regionchange' show-location="true" style="width:100%; height:{{view.Height}}px;" ></map>
+<map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" controls='{{controls}}' bindcontroltap='controltap' markers="{{markers}}" circles='{{circles}}' bindmarkertap="markertap" polyline='{{polyline}}' bindregionchange='regionchange' show-location="true" style="width:100%; height:{{view.Height-80}}px;" ></map>
 </view>
 
 <view class="map_text">

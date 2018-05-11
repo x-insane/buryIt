@@ -17,24 +17,18 @@ page {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  padding:0rpx 0;
 }
 
-.container-gray {
-  background: #f9f9f9;
-}
-
-input {
+/* input {
   height: 60rpx;
   line-height: 60rpx;
   font-family: inherit;
-}
+} */
 
 .input-list {
   padding: 0 20rpx;
-  margin: 20rpx 0;
   background: #fff;
-  border-top: 1rpx solid #ddd;
-  border-bottom: 1rpx solid #ddd;
 }
 
 .input-list .input-item {
@@ -157,7 +151,7 @@ textarea {
   height: 240rpx;
   width: 240rpx;
   border-radius: 20rpx;
-  margin: 50% auto;
+  margin: 0 auto ;
   background: #26a5ff;
 }
 
@@ -165,8 +159,10 @@ textarea {
   position: absolute;
   width: 74rpx;
   height: 150rpx;
-  margin-top: 45rpx;
-  margin-left: 83rpx;
+   margin-top: 45rpx;
+  margin-left: 83rpx; 
+  margin: 0 auto ;
+  background: #26a5ff;
 }
 
 .board {
@@ -193,4 +189,89 @@ textarea {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+
+.record-area{
+  position: relative;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.button{
+  width:175rpx;
+  height:175rpx;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap; 
+}
+
+.record-button{
+  background-color: #09bb07;
+}
+
+.record-button-hover{
+  background-color: #0b9e08;
+}
+
+.recording-button{
+  background-color: #f00000;
+}
+
+.recording-button-hover{
+  background-color: #d60000;
+}
+
+.check-record{
+  width:100%;
+  display:flex;
+  align-self: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.check-button{
+  background-color: #09bb07;
+}
+
+.check-button-hover {
+  background-color: #0b9e08;
+}
+
+.retry-button {
+  background-color: #f00000;
+}
+
+.retry-button-hover {
+  background-color: #d60000;
+}
+
+/* .btn-submit{
+	padding: 20rpx;
+} */
+
+.btn-block{
+  width:100%;
+  line-height: 88rpx;
+}
+
+.btn-green{
+  background:#09bb07;
+  color:#fff;
+}
+
+.deleteVoice-icon{
+  top:-220rpx;
+  position:relative;
+}
+
+.mode-choose{
+  padding:20rpx;
+}
+
+radio{
+  padding:20rpx;
 }
