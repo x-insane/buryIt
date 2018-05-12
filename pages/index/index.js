@@ -1,184 +1,84 @@
 //index.js
-//获取应用实例
-var amapFile = require('../../libs/amap-wx.js');
-var config = require('../../libs/config.js');
 
-//var lonlat;
-//var city;
-
-var markersData = [];
-//const app = getApp()
+const context = (function () {
+   return {
+   }
+})()
 
 Page({
-  data: {
-    Height: 0,
-    scale: 18,
-    latitude: "",
-    longitude: "",
-    markers: [],
-    textData: {},
-    city:'',
-  },
+   data: {
+      Height: 0,
+      scale: 18,
+      latitude: 22.93772,
+      longitude: 113.38424,
+      markers: [],
+      controls: [],
+      textData: {},
+      city: '',
+   },
 
-  //点击marker
-  markertap:function(e) {
-    console.log(e.markerId)
-    var id = e.markerId;
-    var that = this;
-    that.showMarkerInfo(markersData, id);
-    that.changeMarkerColor(markersData, id);
-  },
+   // 移动到当前位置
+   moveToMyLocation: function () {
+      context.map.moveToLocation()
+   },
 
-  onLoad: function (e) {
-    //lonlat = e.lonlat;
-    //city = e.city;
+   // 地图控件点击事件
+   controltap: function(e) {
+      switch (e.controlId) {
+         case "i-position":
+            this.moveToMyLocation()
+            break
+      }
+   },
 
-    var that = this;
-    var key = config.Config.key;
-    var myAmapFun = new amapFile.AMapWX({ key: key });
-    var params = {
-      iconPathSelected:"../../images/marker_checked.png",
-      iconPath:"../../images/marker.png",
-      success:function(data){
-        markersData = data.markers;
-        var poisData = data.poisData;
-        var markers_new = [];
-        markersData.forEach(function(item,index){
-          markers_new.push({
-            id:item.id,
-            latitude:item.latitude,
-            longitude:item.longitude,
-            iconPath:item.iconPath,
-            width:item.width,
-            height:item.height
-          })
-        })
+   //点击marker
+   markertap: function (e) {
+   },
 
-        if(markersData.length > 0){
-          that.setData({
-            markers: markers_new,
-            city:poisData[0].cityname || '',
-            latitude:markersData[0].latitude,
-            longitude:markersData[0].longitude,
-          });
-          that.showMarkerInfo(markersData,0);
-        }else{
-          wx.getLocation({
-            type: 'gcj02',
-            success: function (res) {
-              that.setData({
-                latitude: res.latitude,
-                longitude: res.longitude,
-                city: '北京市'
-              });
-        },
-        fali:function(){
-          that.setData({
-            latitude: 39.909729,
-            longitude: 116.398419,
-            city:'北京市'
-          });
-        }
+   // 中心点改变
+   regionchange: function (e) {
+
+   },
+
+   onLoad: function (e) {
+      // 提取this信息
+      const _this = this
+
+      // 初始化地图上下文
+      context.map = wx.createMapContext("map")
+
+      // 获取系统信息
+      wx.getSystemInfo({
+         success: function (res) {
+            context.info = res
+            _this.setData({
+               controls: [
+                  {
+                     id: "i-position",
+                     position: {
+                        left: 25,
+                        top: res.windowHeight - 45,
+                        width: 18,
+                        height: 18
+                     },
+                     iconPath: "/assets/img/i-position.png",
+                     clickable: true
+                  }
+               ]
+            })
+         }
       })
 
-          that.setData({
-            textData: {
-              name: '抱歉，未找到结果',
-              desc: ''
-            }
-          });
-        }
-      },
-
-      fail: function (info) {
-        // wx.showModal({title:info.errMsg})
-      }
-    }
-
-    wx.getSystemInfo({
-      success: function (res) {
-        //设置map高度，根据当前设备宽高满屏显示
-        that.setData({
-          view: {
-            Height: res.windowHeight
-          }
-        })
-      }
-    })
-
-    if (e && e.keywords) {
-      params.querykeywords = e.keywords;
-    }
-    myAmapFun.getPoiAround(params)
-
-    console.log("1")
-
-  },
-
-  showMarkerInfo: function (data, i) {
-    var that = this;
-    that.setData({
-      textData: {
-        name: data[i].name,
-        desc: data[i].address
-      }
-    });
-  },
-
-   bindInput: function (e) {
-    var that = this;
-    var keywords = e.detail.value;
-    var key = config.Config.key;
-    var myAmapFun = new amapFile.AMapWX({ key: key });
-    myAmapFun.getInputtips({
-      keywords: keywords,
-      location: lonlat,
-      city: city,
-      success: function (data) {
-        if (data && data.tips) {
-          that.setData({
-            tips: data.tips
-          });
-        }
-      }
-    })
-   },  
-
-  bindInputStart:function(e){
-    var that = this;
-    var url = '../inputtips/input';
-    if (e.target.dataset.latitude && e.target.dataset.longitude && e.target.dataset.city) {
-      var dataset = e.target.dataset;
-      url = url + '?lonlat=' + dataset.longitude + ',' + dataset.latitude + '&city=' + dataset.city;
-    }
-    wx.redirectTo({
-      url: url
-    })
-
-  },
-
-
-  changeMarkerColor: function (data, i) {
-    var that = this;
-    var markers = [];
-    for (var j = 0; j < data.length; j++) {
-      if (j == i) {
-        data[j].iconPath = "../../images/marker_checked.png"; 
-      } else {
-        data[j].iconPath = "../../images/marker.png"; 
-      }
-      markers.push({
-        id: data[j].id,
-        latitude: data[j].latitude,
-        longitude: data[j].longitude,
-        iconPath: data[j].iconPath,
-        width: data[j].width,
-        height: data[j].height
+      // 获取当前位置
+      wx.getLocation({
+         success: function (res) {
+            console.log(res)
+            _this.setData({
+               latitude: res.latitude,
+               longitude: res.longitude
+            })
+         }
       })
-    }
-    that.setData({
-      markers: markers
-    });
-  }
+   }
 
 })
