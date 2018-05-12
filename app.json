@@ -1,45 +1,44 @@
 {
   "pages": [
-  "pages/index/index",
-  "pages/logs/logs",
-  "pages/message/message",
-  "pages/me/me",
-  "pages/poi/poi",
-  "pages/inputtips/input",
-  "pages/myPackage/myPackage",
-  "pages/addPackage/addPackage",
-  "pages/packageDetails/packageDetails"
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/message/message",
+    "pages/me/me",
+    "pages/poi/poi",
+    "pages/inputtips/input",
+    "pages/myPackage/myPackage",
+    "pages/addPackage/addPackage",
+    "pages/packageDetails/packageDetails",
+    "pages/edit/edit"
   ],
-
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#7FFFAA",
+    "navigationBarBackgroundColor": "#09bb07",
     "navigationBarTitleText": "buryIt",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "light"
   },
-
-  "tabBar":{
-    "color":"#9B9B9B",
-    "selectedColor":"#F8F8F8",
-    "borderStyle":"black",
-    "list":[
+  "tabBar": {
+    "color": "#9B9B9B",
+    "selectedColor": "#81D427",
+    "borderStyle": "black",
+    "list": [
       {
-        "pagePath":"pages/index/index",
-        "text":"地图",
-        "iconPath":"assets/map.png",
-        "selectedIconPath":"assets/map-active.png"
+        "pagePath": "pages/index/index",
+        "text": "地图",
+        "iconPath": "assets/map.png",
+        "selectedIconPath": "assets/map-active.png"
       },
       {
-        "pagePath": "pages/message/message",
-        "text":"消息中心",
-        "iconPath":"assets/msg.png",
-        "selectedIconPath":"assets/msg-active.png"
+        "pagePath": "pages/myPackage/myPackage",
+        "text": "包裹中心",
+        "iconPath": "assets/msg.png",
+        "selectedIconPath": "assets/msg-active.png"
       },
       {
         "pagePath": "pages/me/me",
-        "text":"关于我",
-        "iconPath":"assets/me.png",
-        "selectedIconPath":"assets/me-active.png"
+        "text": "关于我",
+        "iconPath": "assets/me.png",
+        "selectedIconPath": "assets/me-active.png"
       }
     ]
   }
